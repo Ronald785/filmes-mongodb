@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rota Principal</title>
+    <link rel="stylesheet" type="text/css" href="/styles/home.css" />
+</head>
+<body>
+    <h1>Rota Principal</h1>
+    <div>
+        <a href="/api/inserirfilme" class="btn btn-insert">Inserir Filme</a>
+        <% for (let i = 0; i < movies.length; i++) { %>
+            <div class="obra">
+                <h2>
+                    <%= movies[i].name %>
+                </h2>
+                <a href="/api/filme/<%= movies[i]._id %>">
+                    <img 
+                        src="<%= movies[i].link %>" 
+                        alt="<%= movies[i].name %>"
+                    >
+                </a>
+                <div>
+                    <h3>
+                        <%= movies[i].director %>
+                    </h3>
+                </div>
+            </div>
+            <div style="text-align:center;">
+                <a href="/api/editar/<%= movies[i]._id %>" class="btn btn-edit">Editar</a>
+                <a href="/api/deletar/<%= movies[i]._id %>" class="btn btn-delet">Deletar</a>
+            </div>
+            <hr/>
+        <% } %>
+    </div>
+</body>
+</html>
